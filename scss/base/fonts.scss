@@ -1,0 +1,117 @@
+@import 'variables.scss';
+
+/* ==== FONTS ===== */
+
+
+@each $name, $value in $font-family {
+    .font-family--#{$name} {
+        font-family: $value
+    } 
+}
+
+//classes com os tamanhos de fonts mais usadas
+@each $name, $value in $font-size {
+    .font-size--#{$name}{
+        font-size: $value;
+    }
+}
+.font--thin,
+.font-weight--100
+{
+    font-weight: 100;
+}
+.font--extra-light,
+.font-weight--200
+{
+    font-weight: 200;
+}
+.font--light,
+.font-weight--300
+{
+    font-weight: 300;
+}
+.font--regular,
+.font-weight--400
+{
+    font-weight: 400;
+}
+.font--medium,
+.font-weight--500
+{
+    font-weight: 500;
+}
+.font--semi-bold,
+.font-weight--600
+{
+    font-weight: 600;
+}
+.font--bold,
+.font-weight--700
+{
+    font-weight: 700;
+}
+.font--extra-bold,
+.font-weight--800
+{
+    font-weight: 800;
+}
+.font--black,
+.font-weight--900
+{
+    font-weight: 900;
+}
+
+
+.text{
+    &-align{
+        &--left{
+            text-align:left
+        }
+        &--center{
+            text-align: center
+        }
+        &--right{
+            text-align:right
+        }
+    }
+    &-transform{
+        &--uppercase{
+            text-transform: uppercase
+        }
+        &--capitalize{
+            text-transform: capitalize
+        }
+
+    }
+    &-decoration{
+        &--none{
+            text-decoration: none
+        }
+        &--line-through{
+            text-decoration: line-through
+        }
+        &--line-underline{
+            text-decoration: underline
+        }
+    }
+    &-overflow{
+        &--elipsis{
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.font-style{
+    &--italic{
+        font-style: italic;
+    }
+    &--oblique{
+        font-style: oblique;
+    }
+    &--normal{
+        font-style: normal;
+    }
+    &--normal{
+        font-style: unset;
+    }
+}

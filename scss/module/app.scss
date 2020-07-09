@@ -1,0 +1,4 @@
+.app{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(400px,min-content) 1fr;
+}

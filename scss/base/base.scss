@@ -1,0 +1,135 @@
+
+@import 'variables.scss';
+
+
+@mixin font($font-family, $font-file, $weight, $style) {
+    @font-face {
+        font-family: $font-family;
+        src:    url($font-file+'.eot');
+        src:    url($font-file+'.eot?#iefix') format('embedded-opentype'),
+                url($font-file+'.otf')  format('otf'),
+                url($font-file+'.woff') format('woff'),
+                url($font-file+'.woff2') format('woff2'),
+                url($font-file+'.ttf') format('truetype'),
+                url($font-file+'.svg#aller') format('svg');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+
+@each $name, $value in $font-family {
+
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-Thin", 100, normal);
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-ThinItalic", 100, italic);
+
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-ExtraLight", 200, normal);
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-ExtraLightItalic", 200, italic);
+
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-Light", 300, normal);
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-LightItalic", 300, italic);
+
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-Regular", 400, normal);
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-RegularItalic", 400, italic);
+
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-Medium", 500, normal);
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-MediumItalic", 500, italic);
+
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-SemiBold", 600, normal);
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-SemiBoldItalic", 600, italic);
+
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-Bold", 700, normal);
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-BoldItalic", 700, italic);
+
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-ExtraBold", 800, normal);
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-ExtraBoldItalic", 800, italic);
+
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-Black", 900, normal);
+    @include font("#{$value}", "fonts/#{$value}/#{$value}-BlackItalic", 900, italic);
+
+}
+
+
+/* ==== BASE ===== */
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline:none;
+    font-family:inherit;
+    color: inherit;
+    border-color: inherit;
+    border: none;
+    background-color: transparent;
+    font-style: inherit;
+
+}
+
+body {
+    line-height: unset;
+}
+
+a, span{
+    display: inline;
+}
+a,
+a:link,
+a:visited,
+a:active,
+a:hover,
+a:focus {
+    text-decoration: none;
+    text-decoration-color: unset;
+}
+
+input[type=submit],
+a,
+button{
+    cursor: pointer;
+}
+
+input, select{
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+dd,
+dt {
+    line-height: normal;
+    font-weight: normal;
+}
+
+textarea {
+    border: inherit;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0;
+    border: 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+svg{
+    fill:inherit
+}
+
+::placeholder{
+    color: #999999;
+}
+
+select.select
+{
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+

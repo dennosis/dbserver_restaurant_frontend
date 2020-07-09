@@ -1,0 +1,43 @@
+@import 'variables.scss';
+
+// Loop que que gera as classes de cores baseado na paleta de cores
+/* ==== COLOR ===== */
+
+@each $name, $value in $color-palette {
+
+    /*---#{$name}---*/
+    .background-color--#{$name},.hover-background-color--#{$name}:hover{
+        background-color: $value
+    }
+    .color--#{$name},.hover-color--#{$name}:hover{
+        color: $value
+    }
+    .border-color--#{$name},.hover-border-color--#{$name}:hover{
+        border-color: $value
+    }
+    
+    
+    .gradient-color--#{$name},.hover-gradient-color--#{$name}:hover {
+        background: 
+        linear-gradient(0deg, rgba(0,0,0,0), rgba($value,.01) 35%, rgba($value,.01) 65%, rgba(0,0,0,0)),
+        linear-gradient(90deg, rgba(0,0,0,0), rgba($value,.1) 25%, rgba($value,.1) 75%, rgba(0,0,0,0));
+    }
+
+}
+
+@each $name, $value in $color-palette {
+
+    /*---#{$name}---*/
+    .fill--#{$name},.hover-fill--#{$name}:hover{
+        fill: $value
+    }
+}
+
+//opacity
+@each $name, $value in $opacity-size {
+    .opacity--#{$name}{
+        -moz-opacity:  $value;
+        -khtml-opacity: $value;
+        opacity: $value
+    }
+}

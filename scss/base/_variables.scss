@@ -1,0 +1,213 @@
+
+//================================================================= FONTS ===== 
+
+//Fonts utilizadas no projeto
+$font-family: (
+    "roboto": "Roboto"
+);
+
+//tamanho de font do projeto
+$font-size: (
+    "3xs": 10px,
+    "2xs": 11px,
+    "xs": 12px,
+    "s": 13px,
+    "m": 14px,
+    "l": 16px,
+    "xl": 18px,
+    "2xl": 20px,
+    "3xl": 24px,
+    "4xl": 32px,
+    "5xl": 36px,
+    "8xl": 80px
+);
+
+//=============================================================== COLOR ===== 
+
+$color-palette: (
+    "transparent":transparent,
+    
+    "white": #ffffff,
+    'grey-10': #f2f2f2,
+    'grey-20': #e5e5e5,
+    'grey-30': #CCCCCC,  
+    'grey-40': #999999, 
+    'grey-50': #666666,
+    'grey-60': #333333,
+    'grey-70': #191919,
+    
+    "black": #000000,
+    
+
+    "danger-10": #BC5569,         //cor utilizada nas msgm de erro
+    "danger-20": #ffc6c6,         //cor utilizada nas msgm de erro
+    "success-10": #85A06B,        //cor utilizada nas msgm de sucesso 
+    "success-20": #d9fccb,        //cor utilizada nas msgm de sucesso 
+    "warning-10": #ebbb34,        //cor utilizada nas msgm de atenção 
+    "warning-20": #fff8d5,        //cor utilizada nas msgm de atenção 
+    "info-10": #3D8DCB,           //cor utilizada nas msgm de informação
+    "info-20": #9fbace,           //cor utilizada nas msgm de informacao
+
+    'base-10': #1a1f27, //background
+    'base-20': #25282d,
+    'base-30': #7f8186, //title
+    'base-40': #b7bfcc, //text
+
+    'base-50': #cefc01,
+    'base-60': #2bfc01,
+    'base-70': #01ebfc,
+    'base-75': #005f5f,
+    'base-80': #fc0101,
+
+
+);
+
+.color-alert-bloq{
+    color: #fff;
+    background: #BC5569;
+}
+
+
+
+
+
+
+$opacity-size:(
+    "10":   0.1,
+    "20":   0.2,
+    "30":   0.3,
+    "40":   0.4,
+    "50":   0.5,
+    "60":   0.6,
+    "70":   0.7,
+    "80":   0.8,
+    "90":   0.9,
+    "100":  1
+);
+
+
+// ============================================================ GENERICS ===== 
+
+//Tamanhos para width e height
+$size-w-h: (
+    "min-content": min-content,
+    "max-content":max-content,
+    "fit-content": fit-content,
+    "auto": auto, 
+    "0":    0%, 
+    "10":   10%,
+    "15":   15%,
+    "20":   20%,
+    "25":   25%,
+    "30":   30%,
+    "33":   33%,
+    "34":   34%,
+    "40":   40%,
+    "50":   50%,
+    "60":   60%,
+    "70":   70%,
+    "75":   75%,
+    "80":   80%,
+    "90":   90%,
+    "100":  100%
+);
+
+//Tamanhos mais usados para medidas 
+$standard-size: (
+    "3xs":  3px, 
+    "2xs":  8px, 
+    "xs":   11px, 
+    "s":    13px,
+    "m":    16px,
+    "l":    20px,
+    "xl":   24px,
+    "2xl":  32px,
+    "3xl":  34px,
+    "4xl":  38px,
+    "5xl":  44px,
+    "6xl":  58px
+);
+
+//Tamanhos para padding, margin
+$size-padding-margin: map-merge(
+    (
+        "auto": auto, 
+        "0": 0px
+    ),
+    $standard-size
+);
+
+
+//Tamanhos de largura de bordas
+$size-border: (
+    "none": none, 
+    "1": 1px, 
+    "2": 2px, 
+    "3": 3px,
+    "4": 4px,
+    "5": 5px,
+);
+
+//Tamanhos para border radius
+$size-border-radius: map-merge(
+    (
+        "0": 0px
+    ),
+    $standard-size
+);
+
+//Tamanhos para z-index
+$size-z-index: (
+    "10-":      -10,
+    "0":        0, 
+    "10":       10,
+    "100":      100,
+    "1000":     1000,
+    "10000":    10000,
+    "20000":    20000,
+    "100000":   100000
+
+);
+
+//variedade de segmentos para um template de grid
+$size-grid: (
+    "1fr": repeat(1, 1fr), 
+    "2fr": repeat(2, 1fr), 
+    "3fr": repeat(3, 1fr),
+    "4fr": repeat(4, 1fr),
+    "5fr": repeat(5, 1fr)
+);
+
+//Tamanhos para grid-gap
+$size-grid-gap: $standard-size;
+
+//Tamanhos para span de row e column
+$size-grid-span: (
+    "1": 1, 
+    "2": 2, 
+    "3": 3,
+    "4": 4,
+    "5": 5
+);
+
+
+//Tamanhos para bottom, top, left, right
+$size-coords: (
+        "25-":-25px,
+        "20-":-20px,
+        "10-":-10px,
+        "0":0px,
+        "10":10px,
+        "20":20px
+);
+
+//concatena classe baseado em loop
+@function concatClass($class, $map) {
+    $result: "";
+    @each $name, $value in $map {
+        @if $name != "none" {
+            $result: $result+" "+$class+"--"+$name+",";
+        }
+    }
+    @return $result;
+}

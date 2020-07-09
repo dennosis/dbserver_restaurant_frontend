@@ -1,0 +1,410 @@
+@import 'variables.scss';
+
+/* ==== GENERICS ===== */
+$coords: (
+    "all": "", 
+    "top": "-top", 
+    "bottom": "-bottom", 
+    "left": "-left",
+    "right": "-right",
+);
+
+//Width
+@each $name, $value in $size-w-h {
+    .width--#{$name}{
+        width: $value
+    }
+    .max-width--#{$name}{
+        max-width: $value
+    }
+    .min-width--#{$name}{
+        min-width: $value
+    }
+}
+
+//Height
+@each $name, $value in $size-w-h {
+    .height--#{$name}{
+        height: $value
+    }
+    .max-height--#{$name}{
+        max-height: $value
+    }
+    .min-height--#{$name}{
+        min-height: $value
+    }
+}
+
+//Margin
+@each $name, $value in $size-padding-margin {
+    .margin{
+        @each $nameCoord, $coord in $coords{
+            &#{$coord}--#{$name}{
+                margin#{$coord}: $value;
+            }
+        }
+    }
+}
+
+//Padding
+@each $name, $value in $size-padding-margin {
+    .padding{
+        @each $nameCoord, $coord in $coords{
+            &#{$coord}--#{$name}{
+                padding#{$coord}: $value;
+            }
+        }
+    }
+}
+
+//Border radius
+@each $name, $value in $size-border-radius {
+    .border-radius{
+        &--#{$name}{
+            border-radius: $value;
+        }
+        &-top-left--#{$name}{
+            border-top-left-radius: $value
+        }
+        &-top-right--#{$name}{
+            border-top-right-radius: $value
+        }
+        &-bottom-left--#{$name}{
+            border-bottom-left-radius: $value
+        }
+        &-bottom-right--#{$name}{
+            border-bottom-right-radius: $value
+        }
+    }
+}
+
+//Border width
+@each $name, $value in $coords{
+    #{concatClass('.border'+$value, $size-border)}{
+        border#{$value}-style: solid;
+    }
+}
+@each $name, $value in $size-border {
+    .border{
+        @if $value != "none" {
+            @each $nameCoord, $coord in $coords{
+                &#{$coord}--#{$name}{
+                    border#{$coord}-width: $value;
+                }
+            }
+        }
+    }
+}
+
+//Border none
+@each $name, $value in $size-border {
+    .border{
+        @if $name == "none" {
+            @each $nameCoord, $coord in $coords{
+                &#{$coord}--#{$name}{
+                    border#{$coord}: $value;
+                }
+            }
+        }
+    }
+}
+
+
+.display{
+    &--none{
+        display: none;
+    }
+    &--block{
+        display: block;
+    }
+}
+
+.flex{
+    display: flex;
+    &--column{
+        flex-direction: column
+    }
+    &--wrap{
+        flex-wrap: wrap
+    }
+    &__item{
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        &--grow {
+            flex-grow: 1
+        }
+        &--shrink {
+            flex-shrink: 1
+        }
+    }
+}
+
+.grid{
+    display:-ms-grid;
+    display: grid;
+    &--row{
+        grid-auto-flow: column;
+    }
+    @each $name, $value in $size-grid {
+        &-template-columns--#{$name} {
+            -ms-grid-columns: $value;
+            grid-template-columns: $value;
+        }
+    }
+    @each $name, $value in $size-grid {
+        &-template-rows--#{$name} {
+            -ms-grid-rows: $value;
+            grid-template-rows: $value;
+
+        }
+    }
+    @each $name, $value in $size-grid-gap {
+        &-gap--#{$name} {
+            grid-gap: $value
+        }
+    }
+    @each $name, $value in $size-grid-gap {
+        &-gap-row--#{$name} {
+            grid-row-gap:$value;
+        }
+    }
+    @each $name, $value in $size-grid-gap {
+        &-gap-column--#{$name} {
+            grid-column-gap:$value;
+        }
+    }
+    @each $name, $value in $size-grid-span {
+        &-span-row--#{$name} {
+            -ms-grid-row-span:$value;
+            grid-row: span $value;
+        }
+    }
+    @each $name, $value in $size-grid-span {
+        &-span-column--#{$name} {
+            -ms-grid-column-span:$value;
+            grid-column:span $value;
+        }
+    }
+    
+}
+
+.align{
+    &-items{
+        &--center{
+            align-items: center
+        }
+        &--flex-end{
+            align-items: flex-end
+        }
+        &--flex-start{
+            align-items: flex-start
+        }  
+        &--stretch{
+            align-items: stretch
+        }
+        &--baseline{
+            align-items: baseline
+        }
+    }
+    &-content{
+        &--center{
+            align-content: center
+        }
+        &--flex-end{
+            align-content: flex-end
+        }
+        &--flex-start{
+            align-content: flex-start
+        }  
+        &--stretch{
+            align-content: stretch
+        }
+        &--space-around{
+            align-content: space-around
+        }
+        &--space-between{
+            align-content: space-between
+        }
+    }
+    &-self{
+        &--center{
+            align-self: center
+        }
+        &--flex-end{
+            align-self: flex-end
+        }
+        &--flex-start{
+            align-self: flex-start
+        }  
+        &--stretch{
+            align-self: stretch
+        }
+        &--baseline{
+            align-self: baseline;
+        }
+    }
+}
+
+.justify{
+    &-items{
+        &--center{
+            justify-items: center
+        }
+        &--flex-end{
+            justify-items: flex-end
+        }
+        &--flex-start{
+            justify-items: flex-start
+        }  
+        &--stretch{
+            justify-items: stretch
+        }
+        &--baseline{
+            justify-items: baseline;
+        }
+    }
+    &-content{
+        &--center{
+            justify-content: center
+        }
+        &--end{
+            justify-content: end
+        }
+        &--start{
+            justify-content: start
+        } 
+        &--flex-end{
+            justify-content: flex-end
+        }
+        &--flex-start{
+            justify-content: flex-start
+        }
+        &--stretch{
+            justify-content: stretch
+        }
+        &--space-around{
+            justify-content: space-around
+        }
+        &--space-between{
+            justify-content: space-between
+        }
+        &--left{
+            justify-content: left
+        }
+        &--right{
+            justify-content: right
+        }
+    }
+    &-self{
+        &--center{
+            justify-self: center
+        }
+        &--flex-end{
+            justify-self: flex-end
+        }
+        &--flex-start{
+            justify-self: flex-start
+        }  
+        &--stretch{
+            justify-self: stretch
+        }
+        &--baseline{
+            justify-self: baseline;
+        }
+    }
+}
+
+.direction{
+    &--ltr{
+        direction: ltr
+    }
+    &--rtl{
+        direction: rtl
+    }
+}
+
+.object-fit{
+    &--cover{
+        object-fit: cover
+    }
+    &--contain{
+        object-fit: contain
+    }
+}
+
+.position{
+    &--relative{
+        position: relative;
+    }
+    &--absolute{
+        position: absolute;
+    }
+    &--fixed{
+        position: fixed
+    }
+}
+
+.cursor{
+    &--pointer{
+        cursor: pointer
+    }
+    &--default{
+        cursor: default;
+    }
+    &--not-allowed{
+        cursor: not-allowed;
+    }
+}
+
+.white-space{
+    &--nowrap{
+        white-space: nowrap;
+    }
+}
+
+.overflow{
+    &--hidden{
+        overflow: hidden;
+    }
+    &--auto{
+        overflow: auto;
+    }
+    &--visible{
+        overflow: visible;
+    }
+}
+
+.pointer-events{
+    &--none{
+        pointer-events: none;
+    }
+}
+
+@each $name, $value in $size-z-index{
+    .z-index--#{$name} {
+        z-index: $value;
+    }
+}
+
+//Posicionamento por coordenadas
+@each $name, $value in $size-coords{
+    .top--#{$name} {
+        top: $value;
+    }
+}
+@each $name, $value in $size-coords{
+    .left--#{$name} {
+        left: $value;
+    }
+}
+@each $name, $value in $size-coords{
+    .bottom--#{$name} {
+        bottom: $value;
+    }
+}
+@each $name, $value in $size-coords{
+    .right--#{$name} {
+        right: $value;
+    }
+}
